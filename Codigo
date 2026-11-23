@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portafolio · Ciberseguridad 2.º SMR</title>
+<style>
+:root{--bg:#050a12;--pn:#0b1522;--ln:#17304a;--g:#00ff9c;--c:#22d3ee;--b:#3b82f6;--tx:#d7e4f0;--mu:#7f95ab;--r:#ff5d73;--y:#fbbf24}
+*{box-sizing:border-box}
+html,body{width:100%;min-width:0;margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.6 system-ui,Segoe UI,Roboto,sans-serif;background-image:linear-gradient(rgba(34,211,238,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.035) 1px,transparent 1px);background-size:32px 32px;overflow-x:hidden}
+.app{display:flex;width:100%;min-height:100vh;min-height:100dvh}
+nav{width:clamp(205px,21vw,270px);flex:0 0 clamp(205px,21vw,270px);background:rgba(5,10,18,.97);border-right:1px solid var(--ln);padding:clamp(12px,1.5vw,20px);position:sticky;top:0;align-self:flex-start;height:100vh;height:100dvh;overflow-y:auto;overflow-x:hidden}
+nav h1{font:700 14px monospace;color:var(--g);margin:0 0 10px;text-shadow:0 0 8px var(--g)}
+nav input{width:100%;padding:9px;background:#06101b;border:1px solid var(--ln);color:var(--tx);border-radius:6px;font:13px monospace}
+nav input:focus{outline:0;border-color:var(--c);box-shadow:0 0 8px rgba(34,211,238,.4)}
+nav button{display:flex;gap:8px;width:100%;text-align:left;background:0;border:1px solid transparent;color:var(--tx);padding:9px;margin-top:4px;border-radius:6px;cursor:pointer;font:inherit;transition:.2s}
+nav button:hover{background:#0d2033;border-color:var(--ln)}nav button.on{background:#0d2a2f;border-color:var(--g);color:var(--g)}
+.bar{height:6px;background:#0d1b2b;border-radius:9px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--b),var(--g));transition:.5s}
+main{display:block;flex:1 1 auto;width:0;min-width:0;max-width:none;padding:clamp(14px,2.4vw,34px)}
+.hero{width:100%;border:1px solid var(--ln);border-radius:12px;padding:22px;background:linear-gradient(135deg,#0a1a2c,#06121c);box-shadow:0 0 24px rgba(0,255,156,.08);margin-bottom:18px}
+.hero h2{margin:0 0 6px;font:700 26px monospace;color:var(--g)}.hero p{color:var(--mu);margin:4px 0}
+.hero .term{font:13px monospace;color:var(--c)}.cur{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.stats{display:grid;width:100%;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px;margin-top:14px}
+.card{min-width:0;background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:12px;transition:.25s}.card:hover{border-color:var(--c);box-shadow:0 0 14px rgba(34,211,238,.2);transform:translateY(-2px)}
+.card b{display:block;font:700 22px monospace;color:var(--c)}
+.sec{animation:in .35s}@keyframes in{from{opacity:0;transform:translateY(8px)}}
+h3{font:700 20px monospace;color:var(--c);margin:0 0 4px}.sub{color:var(--mu);margin:0 0 12px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}.tabs button{background:#08121e;border:1px solid var(--ln);color:var(--mu);padding:6px 12px;border-radius:20px;cursor:pointer;font:inherit}
+.tabs button.on{color:#021;background:var(--g);border-color:var(--g)}
+.it{background:var(--pn);border:1px solid var(--ln);border-left:3px solid var(--k);border-radius:8px;margin-bottom:8px}
+.it.T{--k:var(--b)}.it.C{--k:var(--g)}.it.E{--k:var(--y)}.it.X{--k:var(--r)}
+.it>summary{cursor:pointer;padding:10px 12px;display:flex;gap:8px;align-items:center;list-style:none}.it>summary::-webkit-details-marker{display:none}
+.tag{font:700 10px monospace;padding:2px 6px;border-radius:4px;background:var(--k);color:#021}.it.X .tag{color:#fff}
+.it>summary .t{flex:1;font-weight:600}.it>summary::after{content:"▾";color:var(--mu);transition:.2s}.it[open]>summary::after{transform:rotate(180deg)}
+.bd{padding:2px 14px 12px}.bd ul{margin:6px 0;padding-left:20px}
+pre{position:relative;background:#02070d;border:1px solid var(--ln);border-radius:8px;padding:12px 70px 12px 12px;overflow:auto;color:var(--g);font:13px monospace;margin:8px 0}
+pre::before{content:"$ terminal";display:block;color:var(--mu);font-size:10px;margin-bottom:4px}
+.cp{position:absolute;right:8px;top:8px;background:#0d2a2f;color:var(--g);border:1px solid var(--g);border-radius:5px;cursor:pointer;font:11px monospace;padding:3px 8px}
+.ck{display:flex;gap:6px;align-items:center;color:var(--mu);font-size:13px;margin-top:8px;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}th,td{border:1px solid var(--ln);padding:6px 8px;text-align:left}th{background:#0b2233;color:var(--c)}
+.wrap{overflow-x:auto}.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}.flow span{background:#0b2233;border:1px solid var(--c);border-radius:6px;padding:4px 10px;font:12px monospace}.flow em{color:var(--g);font-style:normal}
+.tm{color:var(--c);cursor:pointer;border-bottom:1px dotted var(--c)}
+.pend{border:1px dashed var(--y);color:var(--y);padding:8px 10px;border-radius:8px;font-size:13px;margin:8px 0}
+textarea,.fi{width:100%;background:#06101b;border:1px solid var(--ln);color:var(--tx);border-radius:6px;padding:8px;font:inherit;margin:4px 0 8px}
+#md{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:16px;z-index:9}#md.on{display:flex}
+#md>div{background:var(--pn);border:1px solid var(--g);border-radius:12px;padding:18px;max-width:440px;box-shadow:0 0 30px rgba(0,255,156,.3)}
+#md h4{margin:0 0 6px;color:var(--g);font:700 16px monospace}#md button{background:var(--g);border:0;border-radius:6px;padding:6px 14px;cursor:pointer;font-weight:700}
+@media(max-width:850px){
+  .app{display:block;min-height:100vh}
+  nav{width:100%;height:auto;max-height:none;position:relative;top:auto;border-right:0;border-bottom:1px solid var(--ln);padding:12px 14px}
+  #links{display:flex;gap:5px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:thin}
+  #links button{width:auto;min-width:max-content;white-space:nowrap}
+  main{width:100%;padding:clamp(12px,3vw,22px)}
+}
+@media(max-width:520px){
+  body{font-size:14px}
+  .hero{padding:16px}
+  .hero h2{font-size:22px}
+  .stats{grid-template-columns:repeat(auto-fit,minmax(125px,1fr))}
+  .card{padding:10px}
+  .it>summary{padding:10px}
+  .bd{padding:2px 10px 12px}
+  pre{padding:12px 62px 12px 10px;font-size:12px}
+}
+</style></head><body>
+<div class="app">
+<nav><h1>&gt;_ CYBER·PORTAFOLIO</h1><input id="q" placeholder="Buscar: hash, RAID, docker…" autocomplete="off">
+<div style="font:11px monospace;color:var(--mu);margin-top:10px">PROGRESO GLOBAL <span id="gp">0%</span></div><div class="bar"><i id="gb"></i></div><div id="links"></div></nav>
+<main id="m"></main></div>
+<div id="md" onclick="if(event.target===this)this.classList.remove('on')"><div><h4 id="mt"></h4><p id="mb"></p><button onclick="md.classList.remove('on')">Cerrar</button></div></div>
+<script>
+const GL={hash:["Hash","Huella digital de longitud fija. Mismo texto = mismo hash; un cambio mínimo cambia todo (efecto avalancha) y no se puede revertir."],nonce:["Nonce","Número que el minero va probando (0, 1, 2…) hasta que el hash del bloque empieza por los ceros exigidos."],raid:["RAID","Conjunto redundante de discos independientes: une varios discos para ganar capacidad, velocidad o tolerancia a fallos."],sai:["SAI","Sistema de alimentación ininterrumpida: baterías que filtran picos y dan unos minutos de corriente."],kerckhoffs:["Kerckhoffs","El algoritmo puede ser público: solo la clave debe ser secreta."],mempool:["Mempool","Sala de espera de pagos enviados pero aún no incluidos en un bloque."],cpd:["CPD","Centro de proceso de datos: sala donde se concentran los servidores."]};
+const tm=k=>`<span class="tm" onclick="gl('${k}')">${GL[k][0]}</span>`;
+const D=[
+{id:"docker",ic:"🐳",t:"Docker y contenedores",s:"Tema Docker · PostgreSQL · prácticas · examen",tabs:{
+"Teoría":[["T","¿Qué es Docker?","Proyecto de código abierto que automatiza el despliegue de aplicaciones en <b>contenedores</b>. Lo inició Solomon Hykes en dotCloud y se liberó en marzo de 2013. Un contenedor empaqueta librerías, código y dependencias para ejecutarse igual en cualquier entorno."],
+["T","Contenedor vs máquina virtual","<div class=wrap><table><tr><th></th><th>Máquina virtual</th><th>Contenedor</th></tr><tr><td>Virtualiza</td><td>El hardware</td><td>Nada: comparte el kernel del host</td></tr><tr><td>Sistema operativo</td><td>Completo</td><td>Solo lo necesario</td></tr><tr><td>Arranque / recursos</td><td>Lento / altos</td><td>Segundos / bajos</td></tr></table></div>Ideal para microservicios y modernizar aplicaciones."]],
+"Comandos":[["C","Instalar y probar","Documentación: docs.docker.com/engine","sudo service docker start\nsudo docker run hello-world"],
+["C","Servicio Docker","Ver estado, parar y arrancar.","systemctl status docker\nsystemctl stop docker\nsystemctl start docker"],
+["C","Contenedores e imágenes","<code>docker ps</code> en marcha · <code>ps -a</code> todos los ejecutados · <code>images</code> imágenes descargadas · <code>--help</code> ayuda.","docker version\ndocker ps\ndocker ps -a\ndocker images\ndocker ps --help"],
+["C","Interactivo y background","<code>-it</code> abre una terminal dentro; <code>-d</code> lo deja en segundo plano.","sudo docker run -it --name fedora3 fedora\nsudo docker run -d --name apache100 httpd"],
+["C","Ciclo de vida","Parar, arrancar, matar, borrar y ejecutar dentro con exec.","sudo docker stop fedora3\nsudo docker start fedora3\nsudo docker kill nginx10\ndocker rm nginx1\ndocker exec -it nginx1 /bin/bash"]],
+"Prácticas":[["E","Interactivo (Fedora)","Se crea <b>fedora3</b> con <code>-it</code>, se ejecuta <code>ls</code> dentro, se comprueba <code>systemctl status docker</code> (active), se listan imágenes (fedora, ubuntu, httpd, nginx, hello-world), tras <code>exit</code> aparece como <i>Exited</i> en <code>ps -a</code>, y se hace <code>start</code> y <code>stop</code> desde otra pestaña.","sudo docker run --name fedora3 -it fedora\nsudo docker ps -a\nsudo docker start fedora3\nsudo docker stop fedora3"],
+["E","Background (Apache y Ubuntu)","Apache en segundo plano y comprobación de la imagen descargada; después un Ubuntu en background e interactivo.","sudo docker run -d --name apache100 httpd\nsudo docker images\nsudo docker ps"],
+["E","Exec, stop y rm","Contenedor nginx1: <code>exec</code> con varios comandos separados por <code>;</code>. El bucle <code>for i in *</code> recorre cada fichero del directorio e imprime «ficheroi --&gt;» y su nombre. Se para, se comprueba con filtro y se borra.","docker run -d --name nginx1 nginx\ndocker exec nginx1 ls /\ndocker exec nginx1 /bin/sh -c \"date; uname -a\"\ndocker stop nginx1\ndocker ps -a -f name=nginx1\ndocker rm nginx1"],
+["E","Logs, top, stats, inspect y cp","Con nginx10 se instala wget, se lanza <code>wget localhost</code> y se ve la salida en el log; <code>top</code> muestra procesos (también un <code>sleep 500</code>), <code>stats</code> el uso, y <code>kill</code> lo mata. Después, <code>pull</code> de node, filtro con grep, inspect por NODE_VERSION y copia de fichero al /tmp.","sudo docker logs nginx10\nsudo docker top nginx10\ndocker stats nginx10\nsudo docker pull node\ndocker images | grep node\ndocker image inspect node --format='{{json .Config.Env}}' | grep NODE_VERSION\ndocker cp prueba.txt nginx10:/tmp/"],
+["E","PostgreSQL con variables de entorno","Práctica basada en el documento de clase. Se descarga la imagen oficial de PostgreSQL, se comprueba con <code>grep</code> y se crea un contenedor con la base de datos <b>pt1</b>, el usuario <b>usubd1</b> y la contraseña indicada en la ficha. Después se entra al contenedor, se abre PostgreSQL con <code>psql</code>, se comprueba la base de datos con <code>\\l</code> y se sale con <code>\\q</code>.<p><b>Correcciones de la ficha:</b> Docker utiliza los nombres oficiales <code>POSTGRES_PASSWORD</code>, <code>POSTGRES_USER</code> y <code>POSTGRES_DB</code> (no <code>POSTGRESS_...</code>). Además, el usuario es <code>usubd1</code>, como aparece en los parámetros iniciales; en una línea de la ficha aparece escrito por error como <code>usudb1</code>. Las variables se aplican al inicializar una base de datos nueva.</p><p><b>Importante:</b> la contraseña de la práctica es solo de ejemplo; no la reutilices en servicios reales.</p>","# En la terminal del equipo\ndocker pull postgres\ndocker images | grep postgres\ndocker run -d --name postgres1 -e POSTGRES_DB=pt1 -e POSTGRES_USER=usubd1 -e POSTGRES_PASSWORD=guaxinais postgres\ndocker exec -it postgres1 bash\n# Ya dentro del contenedor\npsql -U usubd1 pt1\n# En la consola de PostgreSQL\n\\l\n\\q"],["X","Examen práctico (14/10/2026)","Parte 1: contenedor interactivo <b>debian1</b> y datos del SO. Parte 2 (CyberChef): Vigenère con clave SMR → <i>LOS CONTENEDORES SE ARRANCAN EN SEGUNDOS</i>. César por frecuencias: letra más frecuente I, clave 22 → <i>ESTE ES EL EXAMEN DE SEGURIDAD DE LOS ESTUDIANTES DE SEGUNDO</i>.","sudo docker run -it --name debian1 debian bash"]]}},
+{id:"cripto",ic:"🔐",t:"Criptografía",s:"Tema 2 · GPG · clásica · John the Ripper",tabs:{
+"Teoría":[["T","Historia","Criptografía = «escritura oculta». Primeros mensajes cifrados: siglo V a.C. (escítala). Siglo I a.C.: <b>César</b>, desplaza 3 posiciones. Siglo XX: máquina Enigma."],
+["T","Simétrica vs asimétrica","<b>Simétrica</b>: misma clave para cifrar y descifrar; rápida (DES, 3DES, AES, Blowfish, IDEA). Problema: circular la clave. <b>Asimétrica</b>: dos claves relacionadas; lo cifrado con una solo se descifra con la otra. El receptor tiene ambas y entrega la pública al emisor."],
+["T","Claves seguras y criptoanálisis","Contra la <b>fuerza bruta</b>: claves largas, cambiarlas, mezclar tipos de caracteres, evitar palabras de diccionario y limitar intentos fallidos. El criptoanálisis busca debilidades en algoritmos o implementaciones. Principio de "+tm('kerckhoffs')+"."]],
+"Comandos":[["C","GPG simétrico","<code>-a</code> genera salida en texto (.asc). Para guardar el descifrado hay que redirigir con <code>&gt;</code>.","gpg -a --symmetric Descargas/Fichero.txt\ndiff Descargas/fichero.txt Descargas/fichero.txt.asc\ngpg -d Descargas/fichero.txt.asc > ficherodesencriptado.txt"],
+["C","John the Ripper (PE4)","Rendimiento, ataque sobre <code>password.hashes</code> y ver resultados. Listas en /usr/share/john/password.lst y /usr/share/wordlists/.","john --test\njohn password.hashes\njohn --format=crypt password.hashes\njohn --show password.hashes"]],
+"Prácticas":[["E","Clásica: César, fuerza bruta, Vigenère (30/12/2026)","César clave 3 → «LA SEGURIDAD ES UN PROCESO NO UN PRODUCTO». Nombre cifrado con clave 7: HUAOVUF. Fuerza bruta: clave 15 → «EL CIFRADO CESAR SE ROMPE EN SEGUNDOS». Vigenère (clave CLAVE) → «LA CRIPTOGRAFIA PROTEGE LA CONFIDENCIALIDAD DE LA INFORMACION». Frecuencias: letra J, desplazamiento 21. César tiene 25 claves y se prueban en menos de 1 s; Vigenère resiste más porque el desplazamiento cambia por letra."],
+["E","GPG y MD5/SHA256","Descarga de SetupCrypTool con <code>wget</code>, comparación de la firma SHA256, cifrado simétrico (AES256) del fichero con <code>gpg -a --symmetric</code>, comparación con <code>diff</code> y descifrado redirigido a otro fichero."],
+["E","PE4 · Cifrado de contraseñas","Tareas: 1) rendimiento (<code>john --test</code>), 2) romper <code>password.hashes</code>, 3) interpretar el informe, 4) <code>john --show</code> (la contraseña aparece tras los dos puntos). Duración 50 min."],
+["X","Examen CyberChef","Ver pestaña Docker: Vigenère (clave SMR) y César por análisis de frecuencias."]]}},
+{id:"pasiva",ic:"🖥️",t:"Seguridad pasiva",s:"Tema 3 CPD · CPD Arena · Tema 4 RAID",tabs:{
+"CPD":[["T","Ubicación y protección",tm('cpd')+" centraliza servidores: ahorra protección y mantenimiento, mejora comunicaciones y personal. Edificio en zona de bajo riesgo natural, lejos de ríos, aeropuertos o centrales; mejor plantas intermedias (la baja sufre sabotajes, la subterránea inundaciones, las altas accidentes aéreos). Dos accesos, pasillos anchos, sin ventanas, falso suelo y techo, material ignífugo, detección de humos y extinción automática."],
+["T","Aislamiento, clima y energía","Proteger de temperatura, humedad, interferencias y ruido. Climatización por duplicado y pasillos fríos/calientes. Dos suministradores eléctricos y de comunicaciones (tecnología distinta), línea eléctrica separada, generador para sistemas críticos y "+tm('sai')+". Control de acceso reforzado con biometría."],
+["T","Plan de recuperación","Describe con detalle qué hacer si cae un servicio. Debe actualizarse con cada cambio e incluir hardware, software (versiones y configuración) y datos (almacenamiento y respaldo)."],
+["E","CPD Arena (misión 1)","Prueba 2: superados responsable de vacaciones, rayo, ola de calor, microcorte y robo de datos (lector de huella); con daños: desastre del edificio, incendio (extintor manual: se pierden 2 racks) y apagón de 40 min. Prueba 3 (extinción por gas): daños en apagón, incendio con rociadores (agua en servidores) y desastre; el resto superado."]],
+"RAID":[["T","Almacenamiento","Los datos son únicos (el hardware se recompra), por eso se refuerzan integridad y disponibilidad: mejores discos, respaldo, servidores especiales y réplicas. "+tm('raid')+" combina discos."],
+["T","Niveles principales","<div class=wrap><table><tr><th>Nivel</th><th>Cómo funciona</th><th>Tolerancia</th></tr><tr><td>RAID 0</td><td>Spanning/striping: disco mayor y más rápido</td><td>Si falla un disco se pierde todo</td></tr><tr><td>RAID 1</td><td>Espejo: duplica en dos discos (pierdes la mitad de capacidad)</td><td>Sobrevive a un fallo; lee más rápido</td></tr><tr><td>RAID 5</td><td>Striping + paridad; 3 discos de 500 GB = 1 TB útil</td><td>Recupera el dato si pierde un disco</td></tr></table></div>Investigar: RAID 6 (doble paridad) y RAID 10."],
+["E","Práctica RAID en Windows Server","Añadir discos, inicializarlos en Administración de discos y crear un <i>nuevo volumen reflejado</i> (RAID 1); se repite para RAID 0 y 5."]]}},
+{id:"block",ic:"⛓️",t:"Blockchain y AulaCoin",s:"Teoría · sesión 1 · sesión 2",tabs:{
+"Teoría":[["T","Los 6 ingredientes","<div class=flow><span>"+tm('hash')+"</span><em>→</em><span>Bloque</span><em>→</em><span>Cadena</span><em>→</em><span>Minado</span><em>→</em><span>Red</span><em>→</em><span>Firmas</span></div>Un bloque guarda datos, "+tm('nonce')+", hash anterior y su hash (válido si empieza por varios ceros). Cambiar un bloque rompe todos los siguientes. Gana la cadena válida con más trabajo; el <b>ataque del 51 %</b> reescribe la historia reciente."],
+["T","Bitcoin en cifras","21 M de bitcoins máximo · bloque cada 10 min · ajuste de dificultad cada 2.016 bloques · halving cada 210.000 bloques (50→25→12,5→6,25→3,125 BTC en 2024) · 10<sup>8</sup> satoshis = 1 BTC. PoW (Bitcoin) frente a PoS (Ethereum desde 2022)."],
+["T","Seguridad","Integridad, autenticidad/no repudio y disponibilidad: sí. Confidencialidad: no (pseudónimo, no anonimato). Riesgos: phishing de frase semilla, regalos falsos, inversiones milagro, ransomware, cryptojacking, plataformas hackeadas."]],
+"Sesión 1":[["E","Rompe la cadena","Cambiar una letra modifica 59 de los 64 caracteres del hash. Minado: 3 ceros → 2.384 intentos; 4 → 62.074; 5 → 474.216. Al cambiar el bloque 2 se rompen los siguientes y hay que re-minar en orden. «Beto hace trampa»: su cadena es válida pero la red no la acepta por no coincidir con la mayoría. Firma con claves tipo GPG: al cambiar 10 por 100 la firma deja de ser válida."]],
+"Sesión 2":[["E","AulaCoin","Dirección AC-B5B46B712F, derivada de la clave pública por un hash; solo la pública llega al servidor. Los 100 AC son tuyos cuando se mina el siguiente bloque. Dificultad 18 → 27 bits al aumentar la potencia de la red. "+tm('mempool')+": pagos pendientes. Retos hacker (todos rechazados): saldo insuficiente, clave incorrecta, firma no válida, transacción repetida y doble gasto. Frase de recuperación: nunca se da; es estafa de phishing. Ransomware pide criptomonedas por pseudónimo, descentralización e irreversibilidad."]]}},
+{id:"lynis",ic:"🛡️",t:"Auditoría con Lynis",s:"Actividad A1",tabs:{"Actividad":[["T","Qué es","Herramienta gratuita (GPL v3) para auditar Linux: revisa actualizaciones, arranque, usuarios, autenticación, sistema de ficheros y servicios.","sudo apt-get update\nsudo apt-get install lynis\nsudo lynis -Q > auditoria.txt\nsudo lynis show details HOME-9304"],
+["E","Qué hay que entregar","PDF con portada, índice y pie de página en Arial 12: auditoría completa con capturas justificadas, antes y después de corregir, y respuestas a 10 preguntas (colores, warnings, sugerencias, Debian Tests y fail2ban, protección de contraseñas, kernel, /etc/sudoers, X11Forwarding, LogLevel y vulnerabilidades).<div class=pend>Pendiente: el material solo contiene el enunciado; no hay resultados de tu análisis para incluir.</div>"]]}},
+{id:"estudio",ic:"🧠",t:"Estudio y repaso",s:"Técnicas · malware · servicios de red",tabs:{
+"Técnicas":[["T","Rutina de estudio","<b>Pomodoro</b>: 25' + pausa 5', pausa larga cada 4. <b>Timeboxing</b>: día, hora, lugar, tarea y duración. <b>Recuperación</b> (la más potente): estudiar sin mirar. <b>Esquemas de memoria</b>: con libro cerrado y corregir en rojo. <b>Repaso espaciado</b>: días 0, 1, 3, 7 y 30. No funcionan: releer, subrayar todo, copiar a limpio ni estudiar la noche antes."],
+["T","Nervios en exámenes","Practicar antes, espiración larga, reinterpretar los nervios, escribir preocupaciones y relajación muscular."]],
+"Malware":[["T","Tipos","<b>Virus</b> se adjunta y se ejecuta; <b>gusano</b> se propaga solo; <b>troyano</b> se disfraza y abre una puerta trasera; <b>ransomware</b> cifra y pide rescate; <b>spyware/keylogger</b> espía; <b>adware</b> muestra publicidad; <b>botnet</b> es una red de equipos «zombis»."],
+["T","Ingeniería social y defensa","Phishing (correo/web), smishing (SMS) y vishing (llamada). Defensa: antivirus, actualizaciones, cortafuegos, no abrir adjuntos sospechosos, doble factor, cuentas sin admin y copias <b>3-2-1</b> (3 copias, 2 soportes, 1 fuera)."]],
+"Redes":[["T","Servicios y puertos","<div class=wrap><table><tr><th>Servicio</th><th>Puerto</th><th>Función</th></tr><tr><td>DHCP</td><td>67/68 UDP</td><td>Asigna IP, máscara, puerta y DNS (DORA)</td></tr><tr><td>DNS</td><td>53</td><td>Nombres → IP</td></tr><tr><td>HTTP / HTTPS</td><td>80 / 443</td><td>Web (HTTPS cifra)</td></tr><tr><td>FTP / SSH</td><td>21 / 22</td><td>Ficheros / administración cifrada</td></tr><tr><td>SMTP / POP3 / IMAP</td><td>25 / 110 / 143</td><td>Enviar / descargar / sincronizar correo</td></tr></table></div>"]]}},
+{id:"refl",ic:"✍️",t:"Reflexiones 1.ª evaluación",s:"Basadas en un artículo",custom:1}];
+let S={};try{S=JSON.parse(localStorage.getItem('cp')||'{}')}catch(e){}
+const sv=()=>{try{localStorage.setItem('cp',JSON.stringify(S))}catch(e){}};
+const $=i=>document.getElementById(i),esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const items=d=>d.tabs?Object.entries(d.tabs).flatMap(([t,a],i)=>a.map((x,j)=>({d,tab:t,x,k:d.id+t+j}))):[];
+function gl(k){$('mt').textContent=GL[k][0];$('mb').textContent=GL[k][1];$('md').classList.add('on')}
+function cp(b){const t=b.parentNode.dataset.c;const f=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()};(navigator.clipboard?navigator.clipboard.writeText(t).catch(f):f());b.textContent='¡Copiado!';setTimeout(()=>b.textContent='Copiar',1200)}
+function pr(d){const a=items(d);return a.length?Math.round(a.filter(o=>S[o.k]).length/a.length*100):0}
+function gprog(){const a=D.flatMap(items);const p=Math.round(a.filter(o=>S[o.k]).length/a.length*100);$('gp').textContent=p+'%';$('gb').style.width=p+'%';D.forEach(d=>{const e=$('p_'+d.id);if(e)e.textContent=d.tabs?pr(d)+'%':''})}
+function tog(k,c){c?S[k]=1:delete S[k];sv();gprog();if(cur&&cur.tabs)$('pb').style.width=pr(cur)+'%'}
+function itm(o){const[t,h,b,c]=o.x;const N={T:'TEORÍA',C:'COMANDO',E:'PRÁCTICA',X:'EXAMEN'}[t];
+return `<details class="it ${t}"><summary><span class="tag">${N}</span><span class="t">${h}</span></summary><div class="bd"><div>${b}</div>${c?`<pre data-c="${esc(c).replace(/"/g,'&quot;')}">${esc(c)}<button class="cp" onclick="cp(this)">Copiar</button></pre>`:''}<label class="ck"><input type="checkbox" ${S[o.k]?'checked':''} onchange="tog('${o.k}',this.checked)"> Marcar como completado</label></div></details>`}
+let cur=null;
+function show(id,tab){const d=D.find(x=>x.id===id);cur=d;document.querySelectorAll('#links button').forEach(b=>b.classList.toggle('on',b.dataset.i===id));
+const m=$('m');if(id==='home'){cur=null;return home()}
+let h=`<div class="sec"><h3>${d.ic} ${d.t}</h3><p class="sub">${d.s}</p>`;
+if(d.custom==1)h+=`<div class="card">
+<h4 style="color:var(--g);margin:10px 0 6px">Situación actual de la ciberseguridad</h4>
+<p>El informe ENISA Threat Landscape 2026 señala que el ransomware, los ataques a la Administración y los riesgos de los proveedores digitales siguen siendo amenazas importantes. La inteligencia artificial también puede facilitar actividades maliciosas.</p>
+<p>Esto demuestra que no basta con instalar un antivirus: hay que actualizar los sistemas, controlar los permisos, proteger las contraseñas y hacer copias de seguridad. En SMR lo relaciono con Docker, la criptografía, RAID y Lynis. Como futuro técnico, debo prevenir problemas, revisar la seguridad y orientar a los usuarios.</p>
+<h4 style="color:var(--g);margin:18px 0 6px">Gratitud, agradecimiento y perdón</h4>
+<p>Investigar sobre la gratitud me ha hecho valorar más la ayuda y el esfuerzo de los demás. Un metaanálisis de 2025 encontró beneficios modestos para el bienestar. Agradecer y reconocer los pequeños avances puede mejorar la convivencia y el trabajo en equipo.</p>
+<p>Según la Asociación Americana de Psicología, perdonar no significa justificar una conducta ni recuperar una relación. Para mí, puede ayudar a avanzar sin guardar resentimiento, pero también es importante mantener límites. Tanto agradecer como perdonar deben ser sinceros y nunca impuestos.</p>
+<div class="pend"><b>Fuentes consultadas:</b><br><a href="https://www.enisa.europa.eu/topics/cyber-threats/threat-landscape" target="_blank" rel="noopener noreferrer">ENISA — Threat Landscape 2026 (22/09/2026)</a><br><a href="https://doi.org/10.1073/pnas.2425193122" target="_blank" rel="noopener noreferrer">Choi y colaboradores — metaanálisis sobre gratitud y bienestar (PNAS, 2025)</a><br><a href="https://www.apa.org/topics/forgiveness" target="_blank" rel="noopener noreferrer">American Psychological Association — Forgiveness</a></div>
+</div>`;
+else{const ts=Object.keys(d.tabs);tab=tab||ts[0];h+=`<div class="bar"><i id="pb" style="width:${pr(d)}%"></i></div><div class="tabs">${ts.map(t=>`<button class="${t===tab?'on':''}" onclick="show('${id}','${t}')">${t}</button>`).join('')}</div>`+items(d).filter(o=>o.tab===tab).map(itm).join('')}
+m.innerHTML=h+'</div>';scrollTo(0,0);try{parent.postMessage({h:document.body.scrollHeight},'*')}catch(e){}}
+function home(){const n=D.flatMap(items).length;$('m').innerHTML=`<div class="sec"><div class="hero"><div class="term">root@sec-lab:~# ./portafolio --smr<span class="cur">█</span></div><h2>Plataforma de Ciberseguridad</h2><p>Seguridad Informática · 2.º SMR. Todo el material del curso: Docker, criptografía, seguridad pasiva, blockchain, auditoría y estudio.</p><div class="stats"><div class="card"><b>${D.filter(x=>x.tabs).length}</b>bloques temáticos</div><div class="card"><b>${n}</b>apartados</div><div class="card"><b id="hp">${$('gp').textContent}</b>completado</div></div></div><div class="stats">${D.map(d=>`<div class="card" style="cursor:pointer" onclick="show('${d.id}')"><div style="font-size:26px">${d.ic}</div><b style="font-size:15px">${d.t}</b><span style="color:var(--mu);font-size:12px">${d.s}</span></div>`).join('')}</div></div>`}
+$('links').innerHTML=[{id:'home',ic:'🏠',t:'Inicio'}].concat(D).map(d=>`<button data-i="${d.id}" onclick="show('${d.id}')"><span>${d.ic}</span><span style="flex:1">${d.t}</span><small id="p_${d.id}" style="color:var(--mu)"></small></button>`).join('');
+$('q').oninput=e=>{const v=e.target.value.trim().toLowerCase();if(v.length<2)return show('home');
+const r=D.flatMap(items).filter(o=>(o.x[1]+o.x[2]+(o.x[3]||'')).toLowerCase().includes(v));
+$('m').innerHTML=`<div class="sec"><h3>Resultados: ${r.length}</h3>`+(r.map(o=>`<div class="card" style="margin-bottom:8px;cursor:pointer" onclick="$('q').value='';show('${o.d.id}','${o.tab}')"><b style="font-size:14px">${o.x[1]}</b><span style="color:var(--mu);font-size:12px">${o.d.t} › ${o.tab}</span></div>`).join('')||'<p class=sub>Sin coincidencias.</p>')+'</div>'};
+home();gprog();
+</script></body></html>
